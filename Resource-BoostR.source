@@ -1,0 +1,492 @@
+@ECHO OFF
+CLS
+ECHO                    Resource-BoostR (tm)
+ECHO ‎  
+ECHO                    The Honest Task Killer
+ECHO ‎
+ECHO             ----------------------------------
+ECHO             Team-Sys Software (tm) 9/2020 (C)
+ECHO             ----------------------------------
+ECHO ‎
+ECHO ‎
+ECHO     P  R  E  S  S   A N  Y    K E Y   T O   B E G I N ...
+PAUSE >NUL
+CLS
+
+@ECHO OFF
+:init
+setlocal DisableDelayedExpansion
+set "batchPath=%~0"
+for %%k in (%0) do set batchName=%%~nk
+set "vbsGetPrivileges=%temp%\OEgetPriv_%batchName%.vbs"
+setlocal EnableDelayedExpansion
+
+:checkPrivileges
+NET FILE 1>NUL 2>NUL
+if '%errorlevel%' == '0' ( goto gotPrivileges ) else ( goto getPrivileges )
+
+:getPrivileges
+if '%1'=='ELEV' (echo ELEV & shift /1 & goto gotPrivileges)
+ECHO.
+ECHO              *********************************************
+ECHO              *   INVOKING UAC FOR PRIVILAGE ESCULATION   *
+ECHO              *********************************************
+PING localhost -n 3 >nul
+
+ECHO Set UAC = CreateObject^("Shell.Application"^) > "%vbsGetPrivileges%"
+ECHO args = "ELEV " >> "%vbsGetPrivileges%"
+ECHO For Each strArg in WScript.Arguments >> "%vbsGetPrivileges%"
+ECHO args = args ^& strArg ^& " "  >> "%vbsGetPrivileges%"
+ECHO Next >> "%vbsGetPrivileges%"
+ECHO UAC.ShellExecute "!batchPath!", args, "", "runas", 1 >> "%vbsGetPrivileges%"
+"%SystemRoot%\System32\WScript.exe" "%vbsGetPrivileges%" %*
+exit /B
+
+:gotPrivileges
+setlocal & pushd .
+cd /d %~dp0
+if '%1'=='ELEV' (del "%vbsGetPrivileges%" 1>nul 2>nul  &  shift /1)
+
+ECHO             ============================================
+ECHO             EXECUTING ADMINISTRATOR SHELL PLEASE WAIT...
+ECHO             ============================================
+PING localhost -n 3 >nul
+
+@ECHO OFF
+COLOR 0a
+CLS
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.               
+ECHO             ---------------------------------------
+ECHO             [*******      PROCESSING     *******]
+ECHO             ---------------------------------------
+ping localhost -n 2.5 >nul
+
+CLS
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO                WORKING...            PLEASE WAIT
+ECHO             ---------------------------------------
+ECHO              []                              =   5 
+ECHO             ---------------------------------------
+PING localhost -n 1 >nul
+CLS
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO                WORKING...            PLEASE WAIT
+ECHO             ---------------------------------------
+ECHO              [][]                            =  15 
+ECHO             ---------------------------------------
+ping localhost -n 1 >nul
+CLS
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO                WORKING...            PLEASE WAIT
+ECHO             ---------------------------------------
+ECHO              [][][]                          =  23 
+ECHO             ---------------------------------------
+ping localhost -n 1 >nul
+CLS
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO                WORKING...            PLEASE WAIT
+ECHO             ---------------------------------------
+ECHO              [][][][]                        =  30 
+ECHO             ---------------------------------------
+ping localhost -n 1 >nul
+CLS
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO                WORKING...            PLEASE WAIT
+ECHO             ---------------------------------------
+ECHO              [][][][][]                      =  38 
+ECHO             ---------------------------------------
+ping localhost -n 1 >nul
+CLS
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO                WORKING...            PLEASE WAIT
+ECHO             ---------------------------------------
+ECHO              [][][][][]                      =  42 
+ECHO             ---------------------------------------
+ping localhost -n 1 >nul
+CLS
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO                WORKING...            PLEASE WAIT
+ECHO             ---------------------------------------
+ECHO              [][][][][][]                    =  45 
+ECHO             ---------------------------------------
+ping localhost -n 1 >nul
+CLS
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO                WORKING...            PLEASE WAIT
+ECHO             ---------------------------------------
+ECHO              [][][][][][][]                  =  48 
+ECHO             ---------------------------------------
+ping localhost -n 1 >nul
+CLS
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO                WORKING...            PLEASE WAIT
+ECHO             ---------------------------------------
+ECHO              [][][][][][][][]                =  50 
+ECHO             ---------------------------------------
+ping localhost -n 1 >nul
+CLS
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO                WORKING...            PLEASE WAIT
+ECHO             ---------------------------------------
+ECHO              [][][][][][][][][]              =  56 
+ECHO             ---------------------------------------
+ping localhost -n 1 >nul
+CLS
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO                WORKING...            PLEASE WAIT
+ECHO             ---------------------------------------
+ECHO              [][][][][][][][][][]            =  63 
+ECHO             ---------------------------------------
+ping localhost -n 1 >nul
+CLS
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO                WORKING...            PLEASE WAIT
+ECHO             ---------------------------------------
+ECHO              [][][][][][][][][][][]          =  69 
+ECHO             ---------------------------------------
+ping localhost -n 1 >nul
+CLS
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO                WORKING...            PLEASE WAIT
+ECHO             ---------------------------------------
+ECHO              [][][][][][][][][][][][]        =  75 
+ECHO             ---------------------------------------
+ping localhost -n 1 >nul
+CLS
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO                WORKING...            PLEASE WAIT
+ECHO             ---------------------------------------
+ECHO              [][][][][][][][][][][][][]      =  79 
+ECHO             ---------------------------------------
+ping localhost -n 1 >nul
+CLS
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO                WORKING...            PLEASE WAIT
+ECHO             ---------------------------------------
+ECHO              [][][][][][][][][][][][][][]    =  86 
+ECHO             ---------------------------------------
+ping localhost -n 1 >nul
+CLS
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO                WORKING...            PLEASE WAIT
+ECHO             ---------------------------------------
+ECHO              [][][][][][][][][][][][][][][]  =  90 
+ECHO             ---------------------------------------
+ping localhost -n 1 >nul
+CLS
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO                WORKING...            PLEASE WAIT
+ECHO             ---------------------------------------
+ECHO              [][][][][][][][][][][][][][][][]  =  96 
+ECHO             ---------------------------------------
+ping localhost -n 1 >nul
+CLS
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO.
+ECHO                  WORK                COMPLETED
+ECHO             ---------------------------------------
+ECHO              [][][][][][][][][][][][][][][][]= 100 
+ECHO             ---------------------------------------
+ping localhost -n 2 >nul
+
+#############################################
+###               ENTER TASKKILL OBJECTS BELOW                ###
+############################################
+
+taskkill /f /im 4t-min.exe
+taskkill /f /im Tweaker.exe
+taskkill /f /im WWAHost.exe
+taskkill /f /im AdobeIPCBroker.exe
+taskkill /f /im AGMService.exe
+taskkill /f /im AGCInvokerUtility.exe
+taskkill /f /im AGSService
+taskkill /f /im AdobeGCClient.exe
+taskkill /f /IM WTClient.exe
+taskkill /f /im ReflectUI.exe
+taskkill /f /im ReflectMonitor.exe
+taskkill /f /im MacriumService.exe
+taskkill /f /im MacriumSupport.exe                     
+taskkill /f /im Creative Cloud.exe                        
+taskkill /f /im ACCCustomHook.exe             
+taskkill /f /im SDIOAssist.exe
+taskkill /f /im spoolsv.exe
+taskkill /f /im ReflectUI.exe
+taskkill /f /im ReflectMonitor.exe
+taskkill /f /im MacriumSupport.exe
+taskkill /f /im MacriumService.exe
+taskkill /f /im NisSrv.exe
+taskkill /f /im
+taskkill /f /im
+taskkill /f /im 
+taskkill /f /im 
+taskkill /f /im 
+taskkill /f /im 
+taskkill /f /im 
+taskkill /f /im 
+taskkill /f /im 
+                            
+# taskkill /f /im                             #
+# taskkill /f /im                             #
+# taskkill /f /im                             #
+# taskkill /f /im                             #
+# taskkill /f /im                             #
+# taskkill /f /im                             #
+# taskkill /f /im                             #
+# taskkill /f /im                             #
+# taskkill /f /im                             #
+# taskkill /f /im                             #
+# taskkill /f /im                             #
+taskkill /f /im Clock64.exe
+
+CLS
+REM RESTART WINDWOS EXPLORER + SWITCH FOCUS BACK TO CMD PROMPT WINDOW 
+@ECHO OFF
+TASKKILL /f /im explorer.exe
+CLS
+START /normal explorer.exe
+
+    CALL :Wait 1
+
+    CALL :AltTab
+
+PAUSE
+
+GOTO :eof
+
+:wait
+    @CHOICE /D Y /T:%1% > NUL
+    EXIT /B
+
+:AltTab
+    (
+        ECHO.CreateObject^("WScript.Shell"^).SendKeys "%%{TAB}"
+    )>%tmp%\tmp.vbs
+    CALL %tmp%\tmp.vbs
+    DEL %tmp%\tmp.vbs
+
+REM ENDING ANIMATION PLUS CREDITS AND CONTACT 
+@ECHO OFF
+CLS
+ECHO                   Resource-BoostR (tm)  
+ECHO. ‎
+ECHO. ‎             
+ECHO. ‎
+ECHO. ‎
+ECHO. ‎
+ECHO.             
+ECHO.             
+ECHO.             
+ECHO.             
+ECHO. ‎
+PING localhost -n 1 >nul
+CLS
+ECHO                   Resource-BoostR (tm) 
+ECHO. ‎
+ECHO. ‎
+ECHO. ‎
+ECHO. ‎             
+ECHO. ‎
+ECHO             ----------------------------------
+ECHO.             
+ECHO.       
+ECHO.             
+ECHO.            
+PING localhost -n 1 >nul  
+CLS
+ECHO                   Resource-BoostR (tm)  
+ECHO. 
+ECHO. ‎
+ECHO. ‎‎
+ECHO. ‎             
+ECHO. ‎
+ECHO             ----------------------------------
+ECHO             Team-Sys Software (tm) 9/2020 (C)             
+ECHO.             
+ECHO.           
+ECHO.  
+PING localhost -n 1 >nul
+CLS
+ECHO                   Resource-BoostR (tm) 
+ECHO. ‎
+ECHO. ‎             
+ECHO. ‎
+ECHO. ‎
+ECHO. ‎
+ECHO             ----------------------------------
+ECHO             Team-Sys Software (tm) 9/2020 (C)
+ECHO               HTTPS://github.com/Team-Sys          
+ECHO.             
+ECHO. ‎                     
+PING localhost -n 1 >nul  
+CLS
+ECHO                   Resource-BoostR (tm) 
+ECHO. ‎
+ECHO. ‎
+ECHO. ‎
+ECHO. ‎             
+ECHO. ‎
+ECHO             ----------------------------------
+ECHO             Team-Sys Software (tm) 9/2020 (C)
+ECHO               HTTPS://github.com/Team-Sys
+ECHO             ----------------------------------
+ECHO.‎
+PING localhost -n 1 >nul
+@ECHO OFF
+CLS
+ECHO                   Resource-BoostR (tm) 
+ECHO. ‎
+ECHO.‎                
+ECHO. ‎               [COMPLETION SUCCESSFUL]
+ECHO.
+ECHO.
+ECHO             ----------------------------------
+ECHO             Team-Sys Software (tm) 9/2020 (C)
+ECHO               HTTPS://github.com/Team-Sys
+ECHO             ----------------------------------
+ECHO.
+PING localhost -n 2 >nul
+ECHO         P R E S S   A N Y   K E Y   T O   E X I T ...
+pause>nul
+CLS 
+EXIT
+
+####################################################
+###  Resource-BoostR -  Mr. Admin of Team-Sys Software (tm)  ###
+###                         Team-Sys 2020 (C)                                            ###
+###               HTTPS://github.com/Team-Sysl                            ###
+###      https://hey-admin.wixsite.com/mhtml                       ###  
+###############################################
+
